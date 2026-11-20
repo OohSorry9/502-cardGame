@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <windows.h>
 #include "functions.h"
+#include <conio.h>
 using namespace std;
 
 
@@ -40,8 +41,14 @@ void mainMenu(){
 	switch(choice){
 		
 		case 1: startGame(); break;
-		case 2: showInstructions(); break;
-		case 3: viewLeaderBoards(); break;
+		case 2: showInstructions(); 
+				enterPressed(mainMenu);
+//				Sleep(1000);
+		break;
+		case 3: viewLeaderBoards(); 
+				enterPressed(mainMenu);
+
+		break;
 		case 4: Exit(); break;
 		
 	}

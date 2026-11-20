@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <windows.h>
+#include <conio.h>
 using namespace std;
 
 
@@ -25,6 +26,39 @@ void BulletPoint(int i, string para){
 	
 	
 }
+
+void enterPressed(void (*func)()){
+	
+	Sleep(500);
+	while(true)
+    {
+    	if(GetAsyncKeyState(VK_RETURN) & 0x8000){
+    	system("cls");
+//        Sleep(100);
+        func();
+        break;
+    }
+		}
+
+}
+
+	//FOR ANY ALPHABETICAL KEY
+
+void keyPressed(char key, void (*func)()){
+	
+	Sleep(500);
+	while(true)
+    {
+    	if(GetAsyncKeyState(key) & 0x8000){
+    	system("cls");
+//        Sleep(100);
+        func();
+        break;
+    }
+		}
+
+}
+
 
 void DrawMainMenu(){
 	BulletPoint(1,"Start New Game");
@@ -55,11 +89,15 @@ void showInstructions(){
 	
 	cout << "(Press Enter to return to the Main Menu...)";
 	
+	
+
+	
 
 };
 
 void viewLeaderBoards(){
-
+	system("cls");
+	
 	int length1=5,length2=5;
 	string names[length1]={"Sara","Hamza","Ali","Ayesha","Usman"};
 	double scores[length2]={95,140,210,275,388};
@@ -80,7 +118,22 @@ void viewLeaderBoards(){
 };
 
 void Exit(){
-	cout << "Exit" << endl;
+	
+	system("cls");
+	cout << "Do you really wnna quit?" << endl;
+	
+	cout << "Y = Yes, N = No" << endl;
+	
+		Sleep(500);
+	while(true)
+    {
+    	if(GetAsyncKeyState('Y') & 0x8000){
+    	system("cls");
+//        Sleep(100);
+        return;
+        break;
+    }
+		}
 }
 
 
